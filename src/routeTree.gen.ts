@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ArtistsRouteImport } from './routes/artists'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as GalleryCatalogueRouteImport } from './routes/gallery-catalogue'
+import { Route as PictureFramingRouteImport } from './routes/picture-framing'
+import { Route as PictureHangingRouteImport } from './routes/picture-hanging'
+import { Route as SignUpRouteImport } from './routes/sign-up'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ArtistsRoute = ArtistsRouteImport.update({
+  id: '/artists',
+  path: '/artists',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryCatalogueRoute = GalleryCatalogueRouteImport.update({
+  id: '/gallery-catalogue',
+  path: '/gallery-catalogue',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PictureFramingRoute = PictureFramingRouteImport.update({
+  id: '/picture-framing',
+  path: '/picture-framing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PictureHangingRoute = PictureHangingRouteImport.update({
+  id: '/picture-hanging',
+  path: '/picture-hanging',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignUpRoute = SignUpRouteImport.update({
+  id: '/sign-up',
+  path: '/sign-up',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/artists': typeof ArtistsRoute
+  '/contact': typeof ContactRoute
+  '/gallery-catalogue': typeof GalleryCatalogueRoute
+  '/picture-framing': typeof PictureFramingRoute
+  '/picture-hanging': typeof PictureHangingRoute
+  '/sign-up': typeof SignUpRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/artists': typeof ArtistsRoute
+  '/contact': typeof ContactRoute
+  '/gallery-catalogue': typeof GalleryCatalogueRoute
+  '/picture-framing': typeof PictureFramingRoute
+  '/picture-hanging': typeof PictureHangingRoute
+  '/sign-up': typeof SignUpRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/artists': typeof ArtistsRoute
+  '/contact': typeof ContactRoute
+  '/gallery-catalogue': typeof GalleryCatalogueRoute
+  '/picture-framing': typeof PictureFramingRoute
+  '/picture-hanging': typeof PictureHangingRoute
+  '/sign-up': typeof SignUpRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/artists'
+    | '/contact'
+    | '/gallery-catalogue'
+    | '/picture-framing'
+    | '/picture-hanging'
+    | '/sign-up'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/artists'
+    | '/contact'
+    | '/gallery-catalogue'
+    | '/picture-framing'
+    | '/picture-hanging'
+    | '/sign-up'
+  id:
+    | '__root__'
+    | '/'
+    | '/artists'
+    | '/contact'
+    | '/gallery-catalogue'
+    | '/picture-framing'
+    | '/picture-hanging'
+    | '/sign-up'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ArtistsRoute: typeof ArtistsRoute
+  ContactRoute: typeof ContactRoute
+  GalleryCatalogueRoute: typeof GalleryCatalogueRoute
+  PictureFramingRoute: typeof PictureFramingRoute
+  PictureHangingRoute: typeof PictureHangingRoute
+  SignUpRoute: typeof SignUpRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/artists': {
+      id: '/artists'
+      path: '/artists'
+      fullPath: '/artists'
+      preLoaderRoute: typeof ArtistsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery-catalogue': {
+      id: '/gallery-catalogue'
+      path: '/gallery-catalogue'
+      fullPath: '/gallery-catalogue'
+      preLoaderRoute: typeof GalleryCatalogueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/picture-framing': {
+      id: '/picture-framing'
+      path: '/picture-framing'
+      fullPath: '/picture-framing'
+      preLoaderRoute: typeof PictureFramingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/picture-hanging': {
+      id: '/picture-hanging'
+      path: '/picture-hanging'
+      fullPath: '/picture-hanging'
+      preLoaderRoute: typeof PictureHangingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sign-up': {
+      id: '/sign-up'
+      path: '/sign-up'
+      fullPath: '/sign-up'
+      preLoaderRoute: typeof SignUpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ArtistsRoute: ArtistsRoute,
+  ContactRoute: ContactRoute,
+  GalleryCatalogueRoute: GalleryCatalogueRoute,
+  PictureFramingRoute: PictureFramingRoute,
+  PictureHangingRoute: PictureHangingRoute,
+  SignUpRoute: SignUpRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

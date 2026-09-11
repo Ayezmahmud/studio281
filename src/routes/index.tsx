@@ -103,11 +103,11 @@ function StudioHome() {
 
       <section id="home" className="relative min-h-[700px] overflow-hidden border-b border-border md:min-h-[760px] lg:min-h-[820px]">
         <img src={heroImage} alt="Studio wall displaying black, white and oak custom picture frames" width={1920} height={1080} className="absolute inset-0 h-full w-full object-cover object-[67%_center] motion-safe:[transform:translateY(var(--hero-shift,0px))_scale(1.04)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,var(--background)_0%,color-mix(in_oklab,var(--background)_94%,transparent)_33%,transparent_61%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,var(--background)_0%,color-mix(in_oklab,var(--background)_90%,transparent)_56%,color-mix(in_oklab,var(--background)_20%,transparent)_100%)] md:bg-[linear-gradient(90deg,var(--background)_0%,color-mix(in_oklab,var(--background)_94%,transparent)_33%,transparent_61%)]" />
         <div className="relative mx-auto flex min-h-[700px] max-w-[1460px] items-center px-6 pt-20 md:min-h-[760px] lg:min-h-[820px] lg:px-10">
           <div className="animate-gentle-rise max-w-[500px] pb-12">
             <p className="mb-7 text-[10px] font-semibold tracking-[.32em]">CUSTOM PICTURE FRAMING</p>
-            <h1 className="font-display text-[64px] leading-[.79] font-semibold sm:text-[78px] lg:text-[92px]">More than<br />just frames.</h1>
+            <h1 className="font-display text-[56px] leading-[.82] font-semibold sm:text-[78px] lg:text-[92px]">More than<br />just frames.</h1>
             <p className="mt-8 text-sm leading-7 text-muted-foreground">We don’t just frame your photos,<br />we bring your memories to life.</p>
             <Button onClick={() => scrollTo("gallery")} className="mt-8 h-12 rounded-none px-6 text-[11px] font-medium">Explore Our Collection <ArrowRight /></Button>
           </div>

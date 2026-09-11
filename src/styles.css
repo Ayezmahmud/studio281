@@ -171,6 +171,24 @@
 @utility animate-hero-settle { animation: hero-settle 1.1s .18s cubic-bezier(.22,1,.36,1) both; }
 @utility animate-scroll-cue { animation: scroll-cue 1.8s ease-in-out infinite; }
 
+.reveal-block,
+.reveal-image {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1);
+}
+
+.reveal-image {
+  transform: translateY(14px) scale(.985);
+  transition-duration: .9s;
+}
+
+.reveal-block.is-visible,
+.reveal-image.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }

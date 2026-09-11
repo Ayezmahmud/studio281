@@ -1,7 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
-import { EditorialCopy, ImagePanel, Modal, PageIntro, useReveal } from "@/components/site-ui";
+import { EditorialCopy, ImagePanel, InfoGrid, Modal, PageIntro, SectionHeading, useReveal } from "@/components/site-ui";
 import editorialImage from "@/assets/editorial-frames.jpg";
 import galleryImage from "@/assets/gallery-wall.jpg";
 
@@ -40,6 +40,24 @@ function PictureHanging() {
         <div className="mx-auto grid max-w-[1340px] gap-10 px-6 py-14 md:grid-cols-[.8fr_1.2fr] md:items-center md:py-16 lg:px-10">
           <EditorialCopy number="02" label="GALLERY WALLS" title={<>Layouts that<br />sit right.</>} body={<>We lay your pieces out on the floor first, agree<br className="hidden sm:block" /> the spacing and eye line, then hang — so the<br className="hidden sm:block" /> wall works the first time.</>} cta="View Gallery" onClick={() => navigate({ to: "/gallery-catalogue" })} />
           <ImagePanel src={galleryImage} alt="Curated wall of varied black, white and timber picture frames" onClick={() => setActiveImage({ src: galleryImage, alt: "Curated gallery wall" })} />
+        </div>
+      </section>
+
+      <section className="border-b border-border">
+        <div className="mx-auto max-w-[1340px] px-6 py-14 md:py-16 lg:px-10">
+          <SectionHeading label="03 / DELIVERY & INSTALLATION" title={<>Artwork delivery &<br />picture hanging.</>} body={<>Artwork placement and hanging is easy with Studio 281. Our experience hanging entire exhibitions — 400+ paintings at a time — means you can be confident in our expertise, for private and commercial clients alike.</>} />
+          <InfoGrid
+            items={[
+              { title: "Artwork Delivery", lead: "Local delivery from the gallery", body: "We proudly offer a local delivery service, direct from Studio 281 Gallery to your premises. Courier pickups are also accepted, and safe transportation of your newly framed artwork is ensured." },
+              { title: "Picture Hanging", lead: "Professional, on-site", body: "On-site hanging is a great option for large, multi-panel artworks and items hung from significant heights. Forget the hassle and let us do it for you — we guarantee excellent workmanship and leave the area tidy." },
+              { title: "Gallery Track Systems", lead: "Adjustable & discreet", body: "A discreet track rail with hanging wire and hooks, using clear perlon or twisted stainless steel wire so artwork height can be adjusted without tools. Our team installs track systems on-site to suit your space." },
+            ]}
+          />
+          <ul className="mt-10 grid gap-3 text-[10px] leading-relaxed text-muted-foreground sm:grid-cols-3">
+            <li>· Site measures for large scale diptychs and multi-panel works.</li>
+            <li>· Layouts hung to be viewed from two levels.</li>
+            <li>· Artworks installed up to 4m above floor level.</li>
+          </ul>
         </div>
       </section>
 

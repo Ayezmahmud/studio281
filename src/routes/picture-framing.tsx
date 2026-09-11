@@ -3,7 +3,7 @@ import { Box, CheckCircle2, PackageCheck, Play, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
-import { EditorialCopy, Feature, ImagePanel, Modal, PageIntro, useReveal } from "@/components/site-ui";
+import { EditorialCopy, Feature, ImagePanel, InfoGrid, Modal, PageIntro, SectionHeading, useReveal } from "@/components/site-ui";
 import customImage from "@/assets/custom-frames.jpg";
 import processImage from "@/assets/process-framing.jpg";
 
@@ -52,6 +52,25 @@ function PictureFraming() {
           <Feature icon={<Box />} title="Custom Sizes" text={<>From small prints to<br />large statement pieces.</>} />
           <Feature icon={<CheckCircle2 />} title="Expert Craftsmanship" text={<>Handcrafted with care,<br />made to last.</>} />
           <Feature icon={<PackageCheck />} title="Fast & Safe Delivery" text={<>Your frames arrive safely,<br />ready to hang.</>} />
+        </div>
+      </section>
+
+      <section className="border-b border-border">
+        <div className="mx-auto max-w-[1340px] px-6 py-14 md:py-16 lg:px-10">
+          <SectionHeading label="03 / FRAMING SERVICES" title={<>A comprehensive<br />framing service.</>} body={<>Our frames are produced in-house from quality materials to suit all budgets and purposes, including preservation framing techniques for delicate items. You name it, we frame it. If you cannot attend the gallery in person, we can still design a frame specification with you by phone or email.</>} />
+          <InfoGrid
+            items={[
+              { title: "Consultation Process", lead: "In-person, phone or email", body: "The extensive knowledge, experience and design flair of the Studio 281 team delivers the best result every time, whether you are decorating your home or commissioning art for a large commercial project." },
+              { title: "Bespoke Finishes & Moulding", lead: "Australian timbers", body: "Our comprehensive library of mouldings features Australian timbers alongside a curated selection of classic and contemporary styles. Mouldings are matched to your artwork in consultation, and additional hand finishes are available on request." },
+              { title: "Canvas Services", lead: "Stretching & float framing", body: "We stretch rolled canvasses that are already painted or printed — as a stand-alone service, or with float framing to complete the presentation. We also manufacture blank artist canvasses in-house, specialising in extra large sizes." },
+              { title: "Memorabilia Framing", lead: "Collections & artefacts", body: "Turning personal and historical treasures into custom wall art instantly adds vibrancy to a home, office or commercial space. Assembled collections of coins, maps, tickets and postcards create a uniquely rich display." },
+              { title: "Hinged & Box Frames", lead: "Archival & preservation", body: "Archival and preservation techniques protect delicate items such as jewellery and original artworks. If you have something special to display that requires extra care, contact us today." },
+              { title: "Bulk Framing & Deals", lead: "Special rates", body: "Exclusive rates apply to high volume orders where the frame specifications are the same or similar. Artists are also eligible for pricing deals on custom framing." },
+              { title: "Mat Board Options", lead: "Coloured, suede, archival", body: "Mat board creates space between the artwork and the frame, acting as a bridge for a seamless finish. Options include coloured, suede, black core and museum grade archival board." },
+              { title: "Glass Options", lead: "UV, clear & Perspex", body: "We offer 70% UV resistant glass to optimise clarity without reflection, as well as clear glass and Perspex. All provide outstanding protection for your valuable artwork." },
+              { title: "Standard Poster Frames", lead: "Ready-made sizes", body: "Alongside made-to-measure work we stock standard poster frames, plus on-site consultation with your artwork, picture hanging solutions and artwork delivery." },
+            ]}
+          />
         </div>
       </section>
 

@@ -8,13 +8,6 @@ export const navItems = [
   { to: "/contact", label: "Contact" },
 ] as const;
 
-const searchLinks = [
-  { to: "/gallery-catalogue", label: "Gallery" },
-  { to: "/picture-framing", label: "Custom framing" },
-  { to: "/picture-hanging", label: "Picture hanging" },
-  { to: "/contact", label: "Contact & directions" },
-] as const;
-
 export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
   const [menuOpen, setMenuOpen] = useState(false);
 

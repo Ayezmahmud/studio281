@@ -39,6 +39,30 @@ export function Modal({ children, onClose }: { children: React.ReactNode; onClos
   return <div role="dialog" aria-modal="true" className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/85 p-4 backdrop-blur-sm" onClick={onClose}><Button aria-label="Close" variant="outline" size="icon" className="absolute right-5 top-5 rounded-full border-primary-foreground/60 bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary" onClick={onClose}><X /></Button><div onClick={(event) => event.stopPropagation()}>{children}</div></div>;
 }
 
+export function SectionHeading({ label, title, body }: { label: string; title: React.ReactNode; body?: React.ReactNode }) {
+  return (
+    <div data-reveal className="reveal-block max-w-[620px]">
+      <p className="text-[9px] font-semibold tracking-[.3em] text-muted-foreground">{label}</p>
+      <h2 className="mt-3 font-display text-[32px] leading-[.95] font-semibold sm:text-[42px]">{title}</h2>
+      {body && <p className="mt-5 text-[11px] leading-[1.85] text-muted-foreground">{body}</p>}
+    </div>
+  );
+}
+
+export function InfoGrid({ items, columns = 3 }: { items: { title: string; lead?: string; body: string }[]; columns?: 2 | 3 }) {
+  return (
+    <div className={`mt-10 grid gap-px border border-border bg-border sm:grid-cols-2 ${columns === 3 ? "lg:grid-cols-3" : ""}`}>
+      {items.map((item, i) => (
+        <article key={item.title} data-reveal className="reveal-block bg-background p-7" style={{ transitionDelay: `${(i % 3) * 70}ms` }}>
+          <h3 className="font-display text-[22px] leading-tight font-semibold">{item.title}</h3>
+          {item.lead && <p className="mt-2 text-[9px] font-semibold tracking-[.16em] uppercase text-muted-foreground">{item.lead}</p>}
+          <p className="mt-4 text-[11px] leading-[1.85] text-muted-foreground">{item.body}</p>
+        </article>
+      ))}
+    </div>
+  );
+}
+
 export function PageIntro({ label, title, body }: { label: string; title: React.ReactNode; body?: React.ReactNode }) {
   return (
     <section className="border-b border-border bg-secondary/40">

@@ -1,7 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
-import { EditorialCopy, ImagePanel, Modal, PageIntro, artworks, useReveal } from "@/components/site-ui";
+import { EditorialCopy, ImagePanel, Modal, PageIntro, SectionHeading, artworks, useReveal } from "@/components/site-ui";
 import inspirationImage from "@/assets/inspiration-frame.jpg";
 
 export const Route = createFileRoute("/artists")({
@@ -46,6 +46,18 @@ function Artists() {
               </button>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="border-b border-border">
+        <div className="mx-auto max-w-[1340px] px-6 py-14 md:py-16 lg:px-10">
+          <SectionHeading label="03 / OUR ARTISTS" title={<>Established &<br />emerging artists.</>} body={<>Studio 281 proudly showcase visual artists working in all mediums. Original works are available through the gallery, and artists are eligible for special pricing on custom framing and bulk orders.</>} />
+          <ul className="mt-10 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+            {["Terry Cousins", "Jodee Knowles", "Desmond Sweeney", "Richard Matias", "Pippa McManus", "Samara Faye", "Dean De Villiers", "Asher Stenning", "Peter Usher", "Rob Paolucci", "Tahnee Kelland"].map((name) => (
+              <li key={name} className="bg-background px-6 py-5 text-[11px] font-semibold tracking-[.08em] uppercase">{name}</li>
+            ))}
+          </ul>
+          <p className="mt-8 max-w-[560px] text-[11px] leading-[1.85] text-muted-foreground">Interested in exhibiting or selling through the gallery? Send us an email with a short bio and images of recent work.</p>
         </div>
       </section>
 

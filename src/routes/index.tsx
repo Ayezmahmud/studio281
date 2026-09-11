@@ -3,7 +3,7 @@ import { ArrowRight, Box, CheckCircle2, PackageCheck, Sparkles } from "lucide-re
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
-import { EditorialCopy, Feature, ImagePanel, Modal, useReveal } from "@/components/site-ui";
+import { EditorialCopy, Feature, ImagePanel, InfoGrid, Modal, SectionHeading, useReveal } from "@/components/site-ui";
 import heroImage from "@/assets/studio281-hero.jpg";
 import storyImage from "@/assets/story-frame.jpg";
 import galleryImage from "@/assets/gallery-wall.jpg";
@@ -77,6 +77,22 @@ function StudioHome() {
         <div className="mx-auto grid max-w-[1340px] gap-10 px-6 py-14 md:grid-cols-[.8fr_1.2fr] md:items-center md:py-16 lg:px-10">
           <EditorialCopy number="03" label="CUSTOM FRAMING" title={<>Your Vision.<br />Our Craft.</>} body={<>Whether it’s a cherished memory, a meaningful<br className="hidden sm:block" /> gift or a statement piece, we create custom frames<br className="hidden sm:block" /> that bring your vision to life.</>} cta="Start Your Custom Frame" onClick={() => navigate({ to: "/picture-framing" })} />
           <ImagePanel src={customImage} alt="Close-up of premium oak, walnut and white picture frames" onClick={() => setActiveImage({ src: customImage, alt: "Premium timber picture frames" })} />
+        </div>
+      </section>
+
+      <section className="border-b border-border">
+        <div className="mx-auto max-w-[1340px] px-6 py-14 md:py-16 lg:px-10">
+          <SectionHeading label="04 / WHAT WE DO" title={<>A family owned business<br />in Maylands.</>} body={<>Made-to-measure picture frames are our specialty. We stock a range of high quality options to enhance the presentation of your artwork, large or small. We also offer standard poster frames, on-site consultation with your artwork, picture hanging solutions and artwork delivery. Our expert team are here to help.</>} />
+          <InfoGrid
+            items={[
+              { title: "Picture Framing", lead: "Produced in-house", body: "A comprehensive framing service, made from quality materials to suit all budgets and purposes — including preservation techniques for delicate items. You name it, we frame it." },
+              { title: "Picture Hanging", lead: "Private & commercial", body: "On-site picture hanging, gallery track systems and local artwork delivery. Our experience hanging entire exhibitions of 400+ paintings means you can be confident in our expertise." },
+              { title: "Canvas Services", lead: "Made-to-measure", body: "We manufacture blank artist canvasses in-house, specialising in extra large sizes, and stretch rolled canvasses that are already painted or printed." },
+              { title: "Artists", lead: "Established & emerging", body: "We proudly showcase visual artists in all mediums, including Desmond Sweeney, Richard Matias, Pippa McManus, Jodee Knowles and Peter Usher." },
+              { title: "Consultation", lead: "In-person, phone or email", body: "Bring your artwork in and we will match mouldings, mats and glazing to it. If you cannot attend the gallery, we can design a frame specification remotely." },
+              { title: "Visit The Gallery", lead: "281 Guildford Road, Maylands", body: "Monday to Thursday by appointment. Friday and Saturday walk-ins welcome. Appointments by text on 0423 903 511." },
+            ]}
+          />
         </div>
       </section>
 

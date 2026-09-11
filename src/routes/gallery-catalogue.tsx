@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
-import { Modal, PageIntro, artworks, useReveal } from "@/components/site-ui";
+import { InfoGrid, Modal, PageIntro, SectionHeading, artworks, useReveal } from "@/components/site-ui";
 
 export const Route = createFileRoute("/gallery-catalogue")({
   head: () => ({
@@ -41,6 +41,19 @@ function GalleryCatalogue() {
               </button>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="border-b border-border">
+        <div className="mx-auto max-w-[1340px] px-6 py-14 md:py-16 lg:px-10">
+          <SectionHeading label="ORDERING FROM THE CATALOGUE" title={<>How framing works.</>} body={<>Every frame is produced in-house from quality materials to suit all budgets and purposes. Tell us the piece you like and we will match a moulding, mat and glazing to it.</>} />
+          <InfoGrid
+            items={[
+              { title: "Moulding Library", lead: "Classic & contemporary", body: "A comprehensive library featuring Australian timbers plus classic and contemporary profiles, matched to your artwork in consultation. Hand finishes on request." },
+              { title: "Mats & Glazing", lead: "Archival options", body: "Coloured, suede, black core and museum grade archival mat board, with 70% UV resistant glass, clear glass or Perspex to protect the work." },
+              { title: "Artists & Bulk Orders", lead: "Special rates", body: "Exclusive rates apply to high volume orders with the same or similar specifications, and artists are eligible for pricing deals on custom framing." },
+            ]}
+          />
         </div>
       </section>
 

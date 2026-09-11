@@ -28,6 +28,16 @@ import editorialImage from "@/assets/editorial-frames.jpg";
 
 const mapsUrl = "https://maps.app.goo.gl/beQpa2J2Hdd8z1EY9";
 
+const navItems: { id: string; label: string }[] = [
+  { id: "home", label: "Home" },
+  { id: "custom", label: "+ Picture Framing" },
+  { id: "services", label: "Picture Hanging" },
+  { id: "gallery", label: "Gallery Catalogue" },
+  { id: "ideas", label: "+ Artists" },
+  { id: "contact", label: "Sign-Up" },
+  { id: "contact", label: "Contact" },
+];
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -89,7 +99,7 @@ function StudioHome() {
             <span className="mt-2 block text-[8px] font-semibold tracking-[.32em]">PICTURE FRAMERS</span>
           </button>
           <nav className="hidden items-center gap-9 lg:flex" aria-label="Main navigation">
-            {([{id:'home',label:'Home'},{id:'about',label:'About Us'},{id:'services',label:'Services'},{id:'gallery',label:'Gallery'},{id:'contact',label:'Contact'}]).map(({id,label}) => <button key={id} onClick={() => scrollTo(id)} className="group cursor-pointer text-[11px] font-medium"><span className="border-b border-transparent pb-1 transition-colors group-hover:border-foreground">{label}</span></button>)}
+            {navItems.map(({id,label}) => <button key={label} onClick={() => scrollTo(id)} className="group cursor-pointer text-[11px] font-medium tracking-[.14em] uppercase"><span className={`pb-1 transition-colors ${label === 'Home' ? 'border-b border-foreground' : 'border-b border-transparent group-hover:border-foreground'}`}>{label}</span></button>)}
           </nav>
           <div className="flex items-center gap-1">
             <Button variant="ghost" size="icon" aria-label="Search" onClick={() => setSearchOpen(true)}><Search strokeWidth={1.5} /></Button>
@@ -98,7 +108,7 @@ function StudioHome() {
             <Button variant="ghost" size="icon" aria-label="Open menu" className="lg:hidden" onClick={() => setMenuOpen((value) => !value)}>{menuOpen ? <X /> : <Menu />}</Button>
           </div>
         </div>
-        {menuOpen && <div className="absolute inset-x-0 top-20 border-y border-border bg-background px-6 py-8 lg:hidden"><nav className="flex flex-col items-start gap-6">{([{id:'home',label:'Home'},{id:'about',label:'About Us'},{id:'services',label:'Services'},{id:'gallery',label:'Gallery'},{id:'contact',label:'Contact'}]).map(({id,label}) => <button key={id} onClick={() => scrollTo(id)} className="font-display text-3xl">{label}</button>)}</nav></div>}
+        {menuOpen && <div className="absolute inset-x-0 top-20 border-y border-border bg-background px-6 py-8 lg:hidden"><nav className="flex flex-col items-start gap-6">{navItems.map(({id,label}) => <button key={label} onClick={() => scrollTo(id)} className="font-display text-3xl">{label.replace('+ ', '')}</button>)}</nav></div>}
       </header>
 
       <section id="home" className="relative min-h-[700px] overflow-hidden border-b border-border md:min-h-[760px] lg:min-h-[820px]">

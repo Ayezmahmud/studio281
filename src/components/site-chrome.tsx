@@ -17,7 +17,6 @@ const searchLinks = [
 
 export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
 
   return (
     <header className={`${overlay ? "absolute bg-background/70" : "fixed bg-background/95"} inset-x-0 top-0 z-30 h-20 border-b border-border/35 backdrop-blur-[3px]`}>
@@ -34,9 +33,6 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
           ))}
         </nav>
         <div className="flex items-center gap-1">
-          <Button variant="ghost" size="icon" aria-label="Search" onClick={() => setSearchOpen(true)}><Search strokeWidth={1.5} /></Button>
-          <Button variant="ghost" size="icon" aria-label="Contact Studio 281" asChild><a href="mailto:hello@studio281.com.au"><CircleUserRound strokeWidth={1.5} /></a></Button>
-          <Button variant="ghost" size="icon" aria-label="Start a custom frame" asChild className="relative"><Link to="/picture-framing"><ShoppingBag strokeWidth={1.5} /><span className="absolute right-1.5 top-1.5 h-1.5 w-1.5 rounded-full bg-foreground" /></Link></Button>
           <Button variant="ghost" size="icon" aria-label="Open menu" className="lg:hidden" onClick={() => setMenuOpen((value) => !value)}>{menuOpen ? <X /> : <Menu />}</Button>
         </div>
       </div>
@@ -46,16 +42,6 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
             {navItems.map(({ to, label }) => <Link key={label} to={to} onClick={() => setMenuOpen(false)} className="font-display text-3xl">{label.replace("+ ", "")}</Link>)}
           </nav>
         </div>
-      )}
-      {searchOpen && (
-        <Modal onClose={() => setSearchOpen(false)}>
-          <div className="w-[min(90vw,620px)] bg-background p-8">
-            <div className="flex items-center gap-3 border-b border-foreground pb-4"><Search className="size-5" /><input autoFocus aria-label="Search Studio 281" placeholder="Search frames, gallery, services…" className="w-full bg-transparent text-sm outline-none" /></div>
-            <div className="mt-6 grid gap-3">
-              {searchLinks.map(({ to, label }) => <Link key={label} to={to} onClick={() => setSearchOpen(false)} className="flex justify-between border-b border-border py-3 text-left text-sm">{label}<ArrowRight className="size-4" /></Link>)}
-            </div>
-          </div>
-        </Modal>
       )}
     </header>
   );

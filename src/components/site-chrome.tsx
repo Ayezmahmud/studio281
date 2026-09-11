@@ -5,12 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Modal, mapsUrl } from "@/components/site-ui";
 
 export const navItems = [
-  { to: "/", label: "Home" },
-  { to: "/picture-framing", label: "+ Picture Framing" },
-  { to: "/picture-hanging", label: "Picture Hanging" },
-  { to: "/gallery-catalogue", label: "Gallery Catalogue" },
-  { to: "/artists", label: "+ Artists" },
-  { to: "/sign-up", label: "Sign-Up" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -34,7 +28,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
         </Link>
         <nav className="hidden items-center gap-9 lg:flex" aria-label="Main navigation">
           {navItems.map(({ to, label }) => (
-            <Link key={label} to={to} activeOptions={{ exact: to === "/" }} className="group text-[11px] font-medium tracking-[.14em] uppercase">
+            <Link key={label} to={to} activeOptions={{ exact: true }} className="group text-[11px] font-medium tracking-[.14em] uppercase">
               <span className="border-b border-transparent pb-1 transition-colors group-hover:border-foreground group-data-[status=active]:border-foreground">{label}</span>
             </Link>
           ))}

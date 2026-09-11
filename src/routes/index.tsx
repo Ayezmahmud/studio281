@@ -28,6 +28,12 @@ import editorialImage from "@/assets/editorial-frames.jpg";
 
 const mapsUrl = "https://maps.app.goo.gl/beQpa2J2Hdd8z1EY9";
 
+const artworkModules = import.meta.glob<{ default: { url: string } }>("../assets/gallery/*.asset.json", { eager: true });
+const artworks = Object.keys(artworkModules)
+  .sort()
+  .map((key, i) => ({ url: artworkModules[key]!.default.url, alt: `Framed original artwork ${i + 1} from the Studio 281 gallery catalogue` }));
+
+
 const navItems: { id: string; label: string }[] = [
   { id: "home", label: "Home" },
   { id: "custom", label: "+ Picture Framing" },

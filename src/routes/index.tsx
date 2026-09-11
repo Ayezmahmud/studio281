@@ -16,7 +16,7 @@ import {
   Sparkles,
   X,
 } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/studio281-hero.jpg";
 import storyImage from "@/assets/story-frame.jpg";
@@ -27,6 +27,12 @@ import inspirationImage from "@/assets/inspiration-frame.jpg";
 import editorialImage from "@/assets/editorial-frames.jpg";
 
 const mapsUrl = "https://maps.app.goo.gl/beQpa2J2Hdd8z1EY9";
+
+const artworkModules = import.meta.glob<{ default: { url: string } }>("../assets/gallery/*.asset.json", { eager: true });
+const artworks = Object.keys(artworkModules)
+  .sort()
+  .map((key, i) => ({ url: artworkModules[key]!.default.url, alt: `Framed original artwork ${i + 1} from the Studio 281 gallery catalogue` }));
+
 
 const navItems: { id: string; label: string }[] = [
   { id: "home", label: "Home" },
@@ -139,7 +145,8 @@ function StudioHome() {
       </section>
 
       {sections.map((section) => (
-        <section key={section.number} id={section.id} className="border-b border-border">
+        <Fragment key={section.number}>
+        <section id={section.id} className="border-b border-border">
           <div className="mx-auto grid max-w-[1340px] gap-10 px-6 py-14 md:grid-cols-[.8fr_1.2fr] md:items-center md:py-16 lg:px-10">
             <EditorialCopy number={section.number} label={section.label} title={section.title} body={section.body} cta={section.cta} onClick={() => section.video ? setVideoOpen(true) : section.id === "gallery" || section.id === "ideas" ? setActiveImage({src: section.image, alt: section.alt}) : scrollTo("contact")} />
             <div className="relative">
@@ -148,7 +155,29 @@ function StudioHome() {
             </div>
           </div>
         </section>
+        {section.id === "gallery" && (
+          <section id="gallery-catalogue" className="border-b border-border">
+            <div className="mx-auto max-w-[1340px] px-6 py-14 md:py-16 lg:px-10">
+              <p className="text-[9px] font-semibold tracking-[.3em] text-muted-foreground">GALLERY CATALOGUE</p>
+              <h2 className="mt-3 font-display text-[30px] leading-tight font-semibold sm:text-[38px]">Framed works,<br />one by one.</h2>
+              <div className="mt-10 columns-1 gap-5 sm:columns-2 lg:columns-3">
+                {artworks.map((art, i) => (
+                  <button
+                    key={art.url}
+                    onClick={() => setActiveImage({ src: art.url, alt: art.alt })}
+                    className="reveal group mb-5 block w-full cursor-pointer overflow-hidden border border-border bg-secondary p-2 shadow-sm transition-shadow hover:shadow-lg"
+                    style={{ transitionDelay: `${(i % 6) * 60}ms` }}
+                  >
+                    <img src={art.url} alt={art.alt} loading="lazy" className="w-full transition-transform duration-700 group-hover:scale-[1.03]" />
+                  </button>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+        </Fragment>
       ))}
+
 
       <footer id="contact" className="bg-background">
         <div className="mx-auto grid max-w-[1460px] gap-12 px-6 py-14 md:grid-cols-[1.15fr_.7fr_1.35fr_1fr] lg:px-10">

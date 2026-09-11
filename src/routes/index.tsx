@@ -89,7 +89,7 @@ function StudioHome() {
             <span className="mt-2 block text-[8px] font-semibold tracking-[.32em]">PICTURE FRAMERS</span>
           </button>
           <nav className="hidden items-center gap-9 lg:flex" aria-label="Main navigation">
-            {[['home','Home'],['about','About Us'],['services','Services'],['gallery','Gallery'],['contact','Contact']].map(([id,label]) => <button key={id} onClick={() => scrollTo(id)} className="group cursor-pointer text-[11px] font-medium"><span className="border-b border-transparent pb-1 transition-colors group-hover:border-foreground">{label}</span></button>)}
+            {([{id:'home',label:'Home'},{id:'about',label:'About Us'},{id:'services',label:'Services'},{id:'gallery',label:'Gallery'},{id:'contact',label:'Contact'}]).map(({id,label}) => <button key={id} onClick={() => scrollTo(id)} className="group cursor-pointer text-[11px] font-medium"><span className="border-b border-transparent pb-1 transition-colors group-hover:border-foreground">{label}</span></button>)}
           </nav>
           <div className="flex items-center gap-1">
             <Button variant="ghost" size="icon" aria-label="Search" onClick={() => setSearchOpen(true)}><Search strokeWidth={1.5} /></Button>
@@ -98,7 +98,7 @@ function StudioHome() {
             <Button variant="ghost" size="icon" aria-label="Open menu" className="lg:hidden" onClick={() => setMenuOpen((value) => !value)}>{menuOpen ? <X /> : <Menu />}</Button>
           </div>
         </div>
-        {menuOpen && <div className="absolute inset-x-0 top-20 border-y border-border bg-background px-6 py-8 lg:hidden"><nav className="flex flex-col items-start gap-6">{[['home','Home'],['about','About Us'],['services','Services'],['gallery','Gallery'],['contact','Contact']].map(([id,label]) => <button key={id} onClick={() => scrollTo(id)} className="font-display text-3xl">{label}</button>)}</nav></div>}
+        {menuOpen && <div className="absolute inset-x-0 top-20 border-y border-border bg-background px-6 py-8 lg:hidden"><nav className="flex flex-col items-start gap-6">{([{id:'home',label:'Home'},{id:'about',label:'About Us'},{id:'services',label:'Services'},{id:'gallery',label:'Gallery'},{id:'contact',label:'Contact'}]).map(({id,label}) => <button key={id} onClick={() => scrollTo(id)} className="font-display text-3xl">{label}</button>)}</nav></div>}
       </header>
 
       <section id="home" className="relative min-h-[700px] overflow-hidden border-b border-border md:min-h-[760px] lg:min-h-[820px]">
@@ -143,7 +143,7 @@ function StudioHome() {
       <footer id="contact" className="bg-background">
         <div className="mx-auto grid max-w-[1460px] gap-12 px-6 py-14 md:grid-cols-[1.15fr_.7fr_1.35fr_1fr] lg:px-10">
           <div><p className="font-display text-[30px] leading-none font-semibold">Studio 281</p><p className="mt-2 text-[8px] font-semibold tracking-[.3em]">PICTURE FRAMERS</p><p className="mt-8 text-[11px] text-muted-foreground">Your memories. Framed beautifully.</p></div>
-          <nav className="flex flex-col items-start gap-2 text-[11px]">{[['home','Home'],['about','About Us'],['services','Services'],['gallery','Gallery'],['contact','Contact']].map(([id,label]) => <button key={id} onClick={() => scrollTo(id)} className="cursor-pointer hover:underline">{label}</button>)}</nav>
+          <nav className="flex flex-col items-start gap-2 text-[11px]">{([{id:'home',label:'Home'},{id:'about',label:'About Us'},{id:'services',label:'Services'},{id:'gallery',label:'Gallery'},{id:'contact',label:'Contact'}]).map(({id,label}) => <button key={id} onClick={() => scrollTo(id)} className="cursor-pointer hover:underline">{label}</button>)}</nav>
           <address className="space-y-3 text-[10px] not-italic leading-relaxed">
             <a href={mapsUrl} target="_blank" rel="noreferrer" className="flex gap-3 hover:underline"><MapPin className="mt-0.5 size-3.5 shrink-0" />281 Guildford Rd, Maylands WA 6051, Australia</a>
             <p className="flex gap-3"><span className="mt-1 h-2 w-2 rounded-full bg-foreground" />Open · Closes 5 PM</p>
@@ -159,7 +159,7 @@ function StudioHome() {
         <div className="border-t border-border"><div className="mx-auto flex max-w-[1460px] flex-col gap-3 px-6 py-5 text-[8px] text-muted-foreground sm:flex-row sm:justify-between lg:px-10"><span>© 2025 Studio 281 Picture Framers. All rights reserved.</span><span className="flex gap-6"><a href="#privacy">Privacy Policy</a><a href="#terms">Terms & Conditions</a></span></div></div>
       </footer>
 
-      {searchOpen && <Modal onClose={() => setSearchOpen(false)}><div className="w-[min(90vw,620px)] bg-background p-8"><div className="flex items-center gap-3 border-b border-foreground pb-4"><Search className="size-5" /><input autoFocus aria-label="Search Studio 281" placeholder="Search frames, gallery, services…" className="w-full bg-transparent text-sm outline-none" /></div><div className="mt-6 grid gap-3">{[['gallery','Gallery'],['custom','Custom framing'],['process','Our process'],['contact','Contact & directions']].map(([id,label]) => <button key={id} className="flex cursor-pointer justify-between border-b border-border py-3 text-left text-sm" onClick={() => scrollTo(id)}>{label}<ArrowRight className="size-4" /></button>)}</div></div></Modal>}
+      {searchOpen && <Modal onClose={() => setSearchOpen(false)}><div className="w-[min(90vw,620px)] bg-background p-8"><div className="flex items-center gap-3 border-b border-foreground pb-4"><Search className="size-5" /><input autoFocus aria-label="Search Studio 281" placeholder="Search frames, gallery, services…" className="w-full bg-transparent text-sm outline-none" /></div><div className="mt-6 grid gap-3">{([{id:'gallery',label:'Gallery'},{id:'custom',label:'Custom framing'},{id:'process',label:'Our process'},{id:'contact',label:'Contact & directions'}]).map(({id,label}) => <button key={id} className="flex cursor-pointer justify-between border-b border-border py-3 text-left text-sm" onClick={() => scrollTo(id)}>{label}<ArrowRight className="size-4" /></button>)}</div></div></Modal>}
       {activeImage && <Modal onClose={() => setActiveImage(null)}><img src={activeImage.src} alt={activeImage.alt} className="max-h-[82vh] max-w-[90vw] object-contain" /></Modal>}
       {videoOpen && <Modal onClose={() => setVideoOpen(false)}><div className="relative w-[min(92vw,960px)] bg-primary"><img src={processImage} alt="Framer at work" className="w-full opacity-70" /><div className="absolute inset-0 flex flex-col items-center justify-center text-primary-foreground"><Play className="size-14" fill="currentColor" /><p className="mt-5 font-display text-4xl">Made by hand.</p><p className="mt-2 text-xs">Every detail, measured and finished with care.</p></div></div></Modal>}
     </main>

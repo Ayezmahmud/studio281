@@ -89,7 +89,7 @@ function StudioHome() {
             <span className="mt-2 block text-[8px] font-semibold tracking-[.32em]">PICTURE FRAMERS</span>
           </button>
           <nav className="hidden items-center gap-9 lg:flex" aria-label="Main navigation">
-            {([{id:'home',label:'Home'},{id:'about',label:'About Us'},{id:'services',label:'Services'},{id:'gallery',label:'Gallery'},{id:'contact',label:'Contact'}]).map(({id,label}) => <button key={id} onClick={() => scrollTo(id)} className="group cursor-pointer text-[11px] font-medium"><span className="border-b border-transparent pb-1 transition-colors group-hover:border-foreground">{label}</span></button>)}
+            {navItems.map(({id,label}) => <button key={label} onClick={() => scrollTo(id)} className="group cursor-pointer text-[11px] font-medium tracking-[.14em] uppercase"><span className={`pb-1 transition-colors ${label === 'Home' ? 'border-b border-foreground' : 'border-b border-transparent group-hover:border-foreground'}`}>{label}</span></button>)}
           </nav>
           <div className="flex items-center gap-1">
             <Button variant="ghost" size="icon" aria-label="Search" onClick={() => setSearchOpen(true)}><Search strokeWidth={1.5} /></Button>

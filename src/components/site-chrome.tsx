@@ -5,6 +5,11 @@ import { Button } from "@/components/ui/button";
 import { mapsUrl } from "@/components/site-ui";
 
 export const navItems = [
+  { to: "/", label: "Home" },
+  { to: "/picture-framing", label: "+ Picture Framing" },
+  { to: "/picture-hanging", label: "Picture Hanging" },
+  { to: "/gallery-catalogue", label: "Gallery Catalogue" },
+  { to: "/artists", label: "+ Artists" },
   { to: "/contact", label: "Contact" },
 ] as const;
 

@@ -28,7 +28,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
         </Link>
         <nav className="hidden items-center gap-9 lg:flex" aria-label="Main navigation">
           {navItems.map(({ to, label }) => (
-            <Link key={label} to={to} activeOptions={{ exact: to === "/" }} className="group text-[11px] font-medium tracking-[.14em] uppercase">
+            <Link key={label} to={to} activeOptions={{ exact: true }} className="group text-[11px] font-medium tracking-[.14em] uppercase">
               <span className="border-b border-transparent pb-1 transition-colors group-hover:border-foreground group-data-[status=active]:border-foreground">{label}</span>
             </Link>
           ))}

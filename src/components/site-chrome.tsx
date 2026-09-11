@@ -1,8 +1,8 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, CircleUserRound, Instagram, Mail, MapPin, Menu, Phone, Search, ShoppingBag, X } from "lucide-react";
+import { ArrowRight, Instagram, Mail, MapPin, Menu, Phone, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Modal, mapsUrl } from "@/components/site-ui";
+import { mapsUrl } from "@/components/site-ui";
 
 export const navItems = [
   { to: "/contact", label: "Contact" },
